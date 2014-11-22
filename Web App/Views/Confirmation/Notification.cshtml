@@ -2,39 +2,35 @@
     ViewBag.Title = "Confirmation";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-@*@Model NotificationViewModel*@
+@model  Web_App.Models.NotificationViewModel
+    <nav class="bar bar-standard ">
+        
+            <a class="btn btn-link btn-nav pull-left" href="@Url.Action("Homepage","Homepage")">
+                <span class="icon icon-left-nav"></span>
+            </a>
 
-<nav class="bar bar-nav">
-    <button class="btn btn-link btn-nav pull-left">
-        <span class="icon icon-left-nav"></span>
-        Left
-    </button>
-    <h2 class="title" style="text-align:center;">Confirmation</h2>
-</nav>
-<p>The following people have been confirmed.</p>
-<ul>
-    @*@{
-        int i = 0;
-        foreach (var contact in Model.users)
-        {
-            <li>@contact.name</li>
-            <li class="hidden">@contact.number</li>
-
+       
+        <h2 class="title" >Confirmation</h2>
+    </nav>
+<div class="buffer">
+    <p>The following people have been confirmed.</p>
+    <ul class="table-view">
+        @{
+            foreach (var contact in Model.Users)
+            {
+                <li class="table-view-cell" data-number="@contact.Number">@contact.Name</li>
+            }
         }
-    }*@
 
-    <li>Name One</li>
-    <li>Name Two</li>
-    <li>Name Three</li>
-    <li>Name Four</li>
-    <li>Name Five</li>
-</ul>
-<p>
-    Nunc in ultrices turpis, et dignissim justo. Phasellus ante ex, eleifend
-    a nunc et, rhoncus bibendum felis. Sed efficitur velit a metus vestibulum
-    suscipit. Quisque eget quam fringilla, pulvinar orci eget, placerat nulla.
-    Morbi ullamcorper nunc elit, ut semper dolor tempus non.
-</p>
+
+    </ul>
+    <p>
+        Nunc in ultrices turpis, et dignissim justo. Phasellus ante ex, eleifend
+        a nunc et, rhoncus bibendum felis. Sed efficitur velit a metus vestibulum
+        suscipit. Quisque eget quam fringilla, pulvinar orci eget, placerat nulla.
+        Morbi ullamcorper nunc elit, ut semper dolor tempus non.
+    </p>
+</div>
 
 @*<script>
     var users;

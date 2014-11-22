@@ -16,7 +16,7 @@ namespace Web_App.Controllers
         
         public ActionResult Notification([FromUri]  NotificationViewModel model)
         {
-            return View();
+            return View(model);
         }
     }
 }
