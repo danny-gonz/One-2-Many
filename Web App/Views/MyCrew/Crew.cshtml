@@ -4,27 +4,25 @@
 }
 
 <nav class="bar bar-standard">
-    <a href="/homepage/homepage" id="home" class="btn btn-negative pull-left">
+    <a href="/homepage/homepage" id="home" class="btn btn-primary pull-left">
         Home
     </a>
     
-    <h1 class="title">My Crew</h1>
+    <h1 class="title">Friends</h1>
 </nav>
-<br />
 
-<body>
-
-    <ul id="crew" class="table-view">
-
-        <li id="crewClone" class="table-view-cell partCrew"><span class="crewName"></span><button class="btn num" data-id="2">Request</button></li>
-      
-    </ul>
-   
+<div class="content">
     
-   
 
-</body>
+        <ul id="crew" class="table-view">
 
+            <li id="crewClone" class="table-view-cell partCrew"><span class="crewName"></span><button class="btn num" data-id="2">Request Pending</button></li>
+
+        </ul>
+
+
+    
+</div>
 @section scripts{
 
 <script>
@@ -35,7 +33,7 @@
     findMe.page.startUp = function () {
 
        
-        var myCrew = [{ name: 'Bozo', id: 99 }, { name: 'Sandy', id: 33 }];
+        var myCrew = [{ name: 'Bozo', id: 99 }, { name: 'Sandy', id: 33 }, { name: 'Bob', id: 1 }, { name: 'Tupac', id: 10 }, { name: 'Jimi', id: 69 }];
 
         findMe.page.confirm(myCrew);
 
