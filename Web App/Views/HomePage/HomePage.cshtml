@@ -1,32 +1,9 @@
 ﻿@{
-    ViewBag.Title = "HomePage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <!--Todo: Move to site.css/ use ratchet guidelines -->
 <style>
-    #underlinehead {
-        /*color: #3a84df;*/
-        color:red;
-        text-decoration: underline;
-        margin-top: 20px;
-    }
 
-    #space {
-        margin-top: 45px;
-    }
-
-    #submitButton {
-        margin-top: 30px;
-        width: 300px;
-        height: 50px;
-        font-size: 20px;
-    }
-
-    #findmebutton {
-        width: 200px;
-        height: 60px;
-        font-size:30px;
-    }
     #candidate-map-canvas{
         height:250px;
     }
@@ -37,31 +14,27 @@
 
 
 
-<section class="page-block space-top double-space-bottom">
-    <h2 id="underlinehead">Find Me I'm Drunk</h2>
-    <a class="btn btn-lg btn-primary btn-center" type="button" id="submitButton" data-formid="#organizationForm" href="@Url.Action("Index","Contacts")">Create Crew</a>
-    <div class="container">
+<nav class="bar bar-standard">
+   
+    <h2 id="title">Find Me I'm Drunk</h2>
+    </nav>
+<div class="bar bar-standard bar-header-secondary">
+
+    <a class="navigate-right"  id="submitButton" data-formid="#organizationForm" href="@Url.Action("Index","Contacts")">Create Crew</a>
+</div>
         <div id="space" class="page-heading center">
         </div>
-        <div class="row">
-            <div class="col-md-12 col-sm-12">
                 <!--Google Map-->
                 <div id="candidate-map-canvas" class="google-map h-550 space-bottom google-maps" data-location="200 N Spring St Los Angeles, CA" data-zoom="12">
                     <!--Insert Location in data-location, insert map zoom in data-zoom-->
                 </div>
                 <!--Google Map Close-->
-            </div>
-            @*<iframe width="450"
-                    height="250"
-                    frameborder="0" style="border:0"
-                    src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBb84ki8We_bGQUfErc_Ddbp9C4x5ZFsds&q=LosAngeles"></iframe>*@
+           
 
-            <a class="btn btn-lg btn-primary btn-center" href="@Url.Action( "Crew", "MyCrew")"  id="findmebutton" data-formid="#organizationForm"> Find Me!</a>
+            <div class="bar bar-standard bar-footer"><a class="btn btn-primary btn-block" href="@Url.Action( "Crew", "MyCrew")" id="findmebutton" data-formid="#organizationForm"> Find Me!</a></div>
 
 
-        </div>
-    </div>
-</section>
+
 
 
 
@@ -75,6 +48,12 @@
 
 
         FindMeImDrunkStartUp = function () {
+            Parse.initialize("LDtJQ5I4BlrSBQVkcpseYHG3UKzIwu9PS1Wzo2uj", "UIhS4RE9ne9huCjlOHE8L73Xr7uIA8CGpTJX3lea");
+            var sinchClient = new SinchClient({
+                applicationKey: '32fe5784-1b8b-4a61-b1da-78b37ee38ff4',
+                capabilities: { messaging: true },
+            });
+
 
 
             var mapDraw = function (elementId, centerLatLng, options) {
@@ -88,6 +67,7 @@
                     maximumAge: 0,
 
                 };
+
 
                 var thisMap = new google.maps.Map(document.getElementById(elementId),
                mapoptions);
@@ -118,29 +98,29 @@
         //functions commented out below should be used
 
 
-        //getGeoFromBrowser = function () {
-        //    if (navigator.geolocation) {
-        //        navigator.geolocation.getCurrentPosition(browserGeoSuccess, browserGeoError);
-        //    } else {
-        //        alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
-        //    }
-        //}
+        getGeoFromBrowser = function () {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(browserGeoSuccess, browserGeoError);
+            } else {
+                alert('It seems like Geolocation, which is required for this page, is not enabled in your browser. Please use a browser which supports it.');
+            }
+        }
 
 
-        //browserGeoSuccess = function (position) {
+        browserGeoSuccess = function (position) {
 
-        //    var lati = position.coords.latitude;
-        //    var long = position.coords.longitude;
+            var lati = position.coords.latitude;
+            var long = position.coords.longitude;
 
-        //    geoFromBrowserObj = { lat: position.coords.latitude, lng: position.coords.longitude };
-        //    var formData = "Lat=" + lati + "&Lng=" + long + "&Miles=50";
+            geoFromBrowserObj = { lat: position.coords.latitude, lng: position.coords.longitude };
+            var formData = "Lat=" + lati + "&Lng=" + long + "&Miles=50";
 
-        //};
+        };
 
 
-        //browserGeoError = function () {
-        //    alert("Error");
-        //}
+        browserGeoError = function () {
+            alert("Error");
+        }
 
 
 
