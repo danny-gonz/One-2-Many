@@ -1,0 +1,135 @@
+﻿
+
+<header class="bar bar-nav">
+    <h1 class="title">Pick Your Crew</h1>
+
+</header>
+<br />
+
+<br />
+
+<body>
+
+
+
+
+
+    <div id="crewClone" class="table-view-cell ">
+
+
+
+        <img id="crewface" class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/58/23/27/58232790de6007a03b2e057ff23cec4e.jpg">
+
+        <h4 id="crewName" align="center">Stacy Holzman</h4>
+
+        <button href="" class="btn btn-primary addContact">ADD</button>
+
+
+    </div>
+
+
+
+    <div class="table-view-cell">
+
+        <img class="media-object pull-left" src="http://s.huffpost.com/contributors/jonathan-alpert/headshot.jpg"> <h4 align="center">BOB Rivera</h4>
+        <button class="btn btn-primary addContact">ADD</button>
+
+    </div>
+
+    <div class="table-view-cell">
+
+        <img class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/96/b2/04/96b2044c77b310436d6f326374effaba.jpg"> <h4 align="center">Jackie Chan</h4>
+        <button class="btn btn-primary addContact">ADD</button>
+
+    </div>
+
+    <div class="table-view-cell">
+
+        <img class="media-object pull-left" src="http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg"> <h4 align="center">David Bowie</h4>
+        <button class="btn btn-primary addContact">ADD</button>
+
+    </div>
+
+
+    <div class="table-view-cell">
+
+        <img class="media-object pull-left" src="http://i.huffpost.com/gadgets/slideshows/264640/slide_264640_1783035_sq50.jpg"><h4 align="center">Gregorio Rojas</h4>
+        
+        <button class="btn btn-primary addContact">ADD</button>
+    </div>
+
+    <div>
+
+        <button class="btn btn-primary pull-right addContact "> Submit</button>
+
+    </div>
+
+
+</body>
+
+
+@section scripts{
+
+    <script type="text/javascript">
+
+        var findMe = {
+            page: { handlers: {} }, services: {}, layout: { handlers: {} }
+        };
+
+
+
+        findMe.page.startUp = function(){
+
+            $('.addContact').on('click', findMe.page.mapMyCrew);
+
+
+        }
+
+
+
+        findMe.page.mapMyCrew = function (data) {
+            var newArray = $.map(data.items, findMe.page.handlers.addMyCrew);
+            return newArray
+        }
+
+
+        findMe.page.handlers.addMyCrew = function (oneCrewMember, idx) {
+            var newitem = {
+                targetURL: "/contacts/" + oneCrewMember.userId
+                , image: oneCrewMember.photo
+                , name: oneCrewMember.name
+
+            };
+            return newitem;
+        }
+
+        findMe.page.renderCrewMemeber = function (data) {
+            var crewData = findMe.page.mapMyCrew(data);
+            for (var i = 0; i < crewData.length; i++) {
+                var currentCrewMember = crewData[i];
+                var clone = $('#crewClone').clone();
+
+                var imgUrl = "http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg" + oneCrewMember.photo;
+
+                $(".crewface", clone).attr("src", imgUrl)
+
+                var targetElement = $("#crewClone");
+                $(".crewName", clone).text(currentCrewMember.name);
+            }
+            }
+        
+
+
+
+       
+
+
+
+
+
+
+
+
+</script>
+
+}
