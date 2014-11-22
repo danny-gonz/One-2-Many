@@ -4,17 +4,13 @@
     <h1 class="title">Pick Your Crew</h1>
 
 </header>
-<br />
-
-<br />
-
-<body>
 
 
 
 
 
-    <div id="crewClone" class="table-view-cell ">
+
+    <div id="crewClone" class="table-view-cell  ">
 
 
 
@@ -22,7 +18,7 @@
 
         <h4 id="crewName" align="center">Stacy Holzman</h4>
 
-        <button href="" class="btn btn-primary addContact">ADD</button>
+        <button href="" class="toggle ">ADD</button>
 
 
     </div>
@@ -32,21 +28,21 @@
     <div class="table-view-cell">
 
         <img class="media-object pull-left" src="http://s.huffpost.com/contributors/jonathan-alpert/headshot.jpg"> <h4 align="center">BOB Rivera</h4>
-        <button class="btn btn-primary addContact">ADD</button>
+        <button class="toggle" data-id="5"   >ADD</button>
 
     </div>
 
     <div class="table-view-cell">
 
         <img class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/96/b2/04/96b2044c77b310436d6f326374effaba.jpg"> <h4 align="center">Jackie Chan</h4>
-        <button class="btn btn-primary addContact">ADD</button>
+        <button class="toggle  " data-id="35">ADD</button>
 
     </div>
 
     <div class="table-view-cell">
 
         <img class="media-object pull-left" src="http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg"> <h4 align="center">David Bowie</h4>
-        <button class="btn btn-primary addContact">ADD</button>
+        <button class="toggle  " data-id="52">ADD</button>
 
     </div>
 
@@ -55,16 +51,16 @@
 
         <img class="media-object pull-left" src="http://i.huffpost.com/gadgets/slideshows/264640/slide_264640_1783035_sq50.jpg"><h4 align="center">Gregorio Rojas</h4>
         
-        <button class="btn btn-primary addContact">ADD</button>
+        <button class="toggle  " data-id="335">ADD</button>
     </div>
 
     <div>
 
-        <button class="btn btn-primary pull-right addContact "> Submit</button>
+        <button type="submit" class="btn btn-primary btn-block addContact "> Submit</button>
 
     </div>
 
-
+    
 </body>
 
 
@@ -72,28 +68,47 @@
 
     <script type="text/javascript">
 
-        var findMe = {
+        var fmid = {
             page: { handlers: {} }, services: {}, layout: { handlers: {} }
         };
 
 
-
-        findMe.page.startUp = function(){
-
-            $('.addContact').on('click', findMe.page.mapMyCrew);
+        fmid.page.selected = {};
 
 
+        fmid.page.startUp = function () {
+
+            $('.addContact').on('click', fmid.page.mapMyCrew);
+
+            $('button.toggle').on('click', fmid.page.selecctItem);
+        }
+
+        fmid.page.selecctItem = function ()
+        {
+            if ($(this).hasClass("active"))
+            {
+               // fmid.page.selected[$(this).attr("data-id")] = null;
+
+                delete fmid.page.selected[$(this).attr("data-id")];
+
+                $(this).removeClass("active");
+            }
+            else {
+                fmid.page.selected[$(this).attr("data-id")] = $(this).attr("data-id");
+                $(this).addClass("active");
+            }
+
+           
         }
 
 
-
-        findMe.page.mapMyCrew = function (data) {
+        fmid.page.mapMyCrew = function (data) {
             var newArray = $.map(data.items, findMe.page.handlers.addMyCrew);
             return newArray
         }
 
 
-        findMe.page.handlers.addMyCrew = function (oneCrewMember, idx) {
+        fmid.page.handlers.addMyCrew = function (oneCrewMember, idx) {
             var newitem = {
                 targetURL: "/contacts/" + oneCrewMember.userId
                 , image: oneCrewMember.photo
@@ -103,10 +118,12 @@
             return newitem;
         }
 
-        findMe.page.renderCrewMemeber = function (data) {
-            var crewData = findMe.page.mapMyCrew(data);
+        fmid.page.renderCrewMemeber = function (data) {
+            var crewData = fmid.page.mapMyCrew(data);
             for (var i = 0; i < crewData.length; i++) {
+
                 var currentCrewMember = crewData[i];
+
                 var clone = $('#crewClone').clone();
 
                 var imgUrl = "http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg" + oneCrewMember.photo;
@@ -115,17 +132,11 @@
 
                 var targetElement = $("#crewClone");
                 $(".crewName", clone).text(currentCrewMember.name);
+
+                $(targetElement).append(clone);
             }
             }
         
-
-
-
-       
-
-
-
-
 
 
 
@@ -133,3 +144,4 @@
 </script>
 
 }
+
