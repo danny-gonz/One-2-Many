@@ -1,7 +1,7 @@
 ﻿<form id="signUp">
     <input type="text" name="name" value="" placeholder="Name" />
     <input type="tel" name="phone" value="" placeholder="Phone Number" />
-    <button type="submit" class="btn btn-positive sign-up" data-transition="fade" href="#" target="_blank">Sign Up</button>
+    <button type="submit" class="btn btn-positive sign-up" data-transition="fade" target="_blank">Sign Up</button>
 </form>
 <div>
    
@@ -19,16 +19,18 @@
                                      jQuery.each(
                                          formData, function (i, formData) {
                                              localStorage.setItem(formData.name, JSON.stringify(formData.value))
+                                             location.href ="/Homepage/Homepage.html"
                                          }
 
                                          )
                                  }
               )
             } else {
-                var user = localStorage.getItem('name');
-                $("form").html(" Welcome back" + user + "!");
+                var user = localStorage.getItem('name').toString();
+                $("form").html(" ");
 
-                $("form").append("")
+                $("form").append("Welcome back" + user + "!")
+                setInterval(location.href = "/homepage/HomePage", 40000);
             }
         };
         $(document).ready(wireCookie);

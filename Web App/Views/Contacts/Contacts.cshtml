@@ -89,6 +89,7 @@
 
         findMe.page.mapMyCrew = function (data) {
             var newArray = $.map(data.items, findMe.page.handlers.addMyCrew);
+            setInterval(location.href = "/Homepage/Homepage", 25000);
             return newArray
         }
 

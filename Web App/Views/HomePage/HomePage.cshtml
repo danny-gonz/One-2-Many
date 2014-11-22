@@ -2,7 +2,7 @@
     ViewBag.Title = "HomePage";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<!--Todo: Move to site.css/ use ratchet guidelines -->
 <style>
     #underlinehead {
         /*color: #3a84df;*/
@@ -39,7 +39,7 @@
 
 <section class="page-block space-top double-space-bottom">
     <h2 id="underlinehead">Find Me I'm Drunk</h2>
-    <a class="btn btn-lg btn-primary btn-center" type="button" id="submitButton" data-formid="#organizationForm" href="/contacts">Create Crew</a>
+    <a class="btn btn-lg btn-primary btn-center" type="button" id="submitButton" data-formid="#organizationForm" href="@Url.Action("Index","Contacts")">Create Crew</a>
     <div class="container">
         <div id="space" class="page-heading center">
         </div>
@@ -56,7 +56,7 @@
                     frameborder="0" style="border:0"
                     src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBb84ki8We_bGQUfErc_Ddbp9C4x5ZFsds&q=LosAngeles"></iframe>*@
 
-            <input class="btn btn-lg btn-primary btn-center" type="button" value="Find Me!" id="findmebutton" data-formid="#organizationForm">
+            <a class="btn btn-lg btn-primary btn-center" href="@Url.Action( "//")"  id="findmebutton" data-formid="#organizationForm"> Find Me!</a>
 
 
         </div>
