@@ -14,8 +14,8 @@
 
 <br /><body>
 
-    <ul class="table-view" >
-        <li class="table-view-cell button">Bob Marley<button class="btn num">Request</button></li>
+    <ul id="crew" class="table-view">
+        <li id="crewClone" class="table-view-cell partCrew"><span class="crewName"></span><button class="btn num" data-id="2">Request</button></li>
         <li class="table-view-cell">Danny <button class="btn">Request</button></li>
         <li class="table-view-cell">Daniel <button class="btn">Request</button></li>
         <li class="table-view-cell">Kevin<button class="btn">Request</button></li>
@@ -40,20 +40,42 @@
 
     findMe.page.startUp = function () {
 
-        $("#home").on("click", findMe.page.handlers)
-        
+       
+        var myCrew = [{ name: 'Bozo', id: 99 }, { name: 'Sandy', id: 33 }];
+
+        findMe.page.confirm(myCrew);
 
     }
     
     findMe.page.confirm = function(crew){
 
+      
+
+        var targetList = $("#crew");
+
+        for (var i = 0; i < crew.length; i++) {
+
+            var clone = $("#crewClone").clone();
+
+
+            $(".crewName", clone).text(crew.name);
+
+            clone.appendTo(targetList);
+
+
+
+        }
+
+        
+
+        
 
 
 
     }
 
 
-
+    $(document).ready(findMe.page.startUp);
 
 
 
