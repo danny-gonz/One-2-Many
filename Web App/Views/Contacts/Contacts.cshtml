@@ -113,9 +113,9 @@
             var nvvps = "";
 
             for (var i = 0; i < newArray.length; i++) {
-                nvvps = nvvps + "contacts[" + i + "].name=" + newArray[i].name.toString().trim() + "&contacts[" + i + "].number=" + newArray[i].phone.toString().trim() + "&"
+                nvvps = nvvps + "Users[" + i + "].name=" + newArray[i].name.toString().trim() + "&Users[" + i + "].number=" + newArray[i].phone.toString().trim() + "&"
             }
-
+           
 
             window.location = "/confirmation/notification?" + nvvps;
 
