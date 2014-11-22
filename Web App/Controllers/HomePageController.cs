@@ -6,7 +6,6 @@ using System.Web.Mvc;
 
 namespace Web_App.Controllers
 {
-    //[RoutePrefix("splashpage")]
 
     public class HomePageController : Controller
     {

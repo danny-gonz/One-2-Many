@@ -196,6 +196,7 @@
     <Content Include="fonts\ratchicons.ttf" />
     <Content Include="fonts\ratchicons.eot" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\FindMeImDrunk.map.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
