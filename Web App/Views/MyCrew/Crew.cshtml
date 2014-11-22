@@ -1,0 +1,63 @@
+﻿
+@{
+    ViewBag.Title = "Crew";
+}
+
+<header class="bar bar-nav">
+    <a href="/homepage/homepage" id="home" class="btn btn-negative pull-left">
+        Home
+    </a>
+    
+    <h1 class="title">My Crew</h1>
+</header>
+<br />
+
+<br /><body>
+
+    <ul class="table-view" >
+        <li class="table-view-cell button">Bob Marley<button class="btn num">Request</button></li>
+        <li class="table-view-cell">Danny <button class="btn">Request</button></li>
+        <li class="table-view-cell">Daniel <button class="btn">Request</button></li>
+        <li class="table-view-cell">Kevin<button class="btn">Request</button></li>
+        <li class="table-view-cell">Richard<button class="btn">Request</button></li>
+        <li class="table-view-cell">Luis<button class="btn">Request</button></li>
+    </ul>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+   
+
+</body>
+
+@section scripts{
+
+<script>
+
+    var findMe = { page: { handlers: {} }, services: {} };
+
+
+    findMe.page.startUp = function () {
+
+        $("#home").on("click", findMe.page.handlers)
+        
+
+    }
+    
+    findMe.page.confirm = function(crew){
+
+
+
+
+    }
+
+
+
+
+
+
+
+</script>
+
+}
