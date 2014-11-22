@@ -10,57 +10,57 @@
 
 
 
-    <div id="crewClone" class="table-view-cell  ">
+<div id="crewClone" class="table-view-cell  ">
 
 
 
-        <img id="crewface" class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/58/23/27/58232790de6007a03b2e057ff23cec4e.jpg">
+    <img id="crewface" class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/58/23/27/58232790de6007a03b2e057ff23cec4e.jpg">
 
-        <h4 id="crewName" align="center">Stacy Holzman</h4>
+    <h4 id="crewName" align="center">Stacy Holzman</h4>
 
-        <button href="" class="toggle ">ADD</button>
-
-
-    </div>
+    <button href="" class="toggle ">ADD</button>
 
 
-
-    <div class="table-view-cell">
-
-        <img class="media-object pull-left" src="http://s.huffpost.com/contributors/jonathan-alpert/headshot.jpg"> <h4 align="center">BOB Rivera</h4>
-        <button class="toggle" data-id="5"   >ADD</button>
-
-    </div>
-
-    <div class="table-view-cell">
-
-        <img class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/96/b2/04/96b2044c77b310436d6f326374effaba.jpg"> <h4 align="center">Jackie Chan</h4>
-        <button class="toggle  " data-id="35">ADD</button>
-
-    </div>
-
-    <div class="table-view-cell">
-
-        <img class="media-object pull-left" src="http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg"> <h4 align="center">David Bowie</h4>
-        <button class="toggle  " data-id="52">ADD</button>
-
-    </div>
+</div>
 
 
-    <div class="table-view-cell">
 
-        <img class="media-object pull-left" src="http://i.huffpost.com/gadgets/slideshows/264640/slide_264640_1783035_sq50.jpg"><h4 align="center">Gregorio Rojas</h4>
-        
-        <button class="toggle  " data-id="335">ADD</button>
-    </div>
+<div class="table-view-cell">
 
-    <div>
+    <img class="media-object pull-left" src="http://s.huffpost.com/contributors/jonathan-alpert/headshot.jpg"> <h4 align="center">BOB Rivera</h4>
+    <button class="toggle" data-id="5">ADD</button>
 
-        <button type="submit" class="btn btn-primary btn-block addContact "> Submit</button>
+</div>
 
-    </div>
+<div class="table-view-cell">
 
-    
+    <img class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/96/b2/04/96b2044c77b310436d6f326374effaba.jpg"> <h4 align="center">Jackie Chan</h4>
+    <button class="toggle  " data-id="35">ADD</button>
+
+</div>
+
+<div class="table-view-cell">
+
+    <img class="media-object pull-left" src="http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg"> <h4 align="center">David Bowie</h4>
+    <button class="toggle  " data-id="52">ADD</button>
+
+</div>
+
+
+<div class="table-view-cell">
+
+    <img class="media-object pull-left" src="http://i.huffpost.com/gadgets/slideshows/264640/slide_264640_1783035_sq50.jpg"><h4 align="center">Gregorio Rojas</h4>
+
+    <button class="toggle  " data-id="335">ADD</button>
+</div>
+
+<div>
+
+    <button type="submit" class="btn btn-primary btn-block addContact "> Submit</button>
+
+</div>
+
+
 </body>
 
 
@@ -81,13 +81,16 @@
             $('.addContact').on('click', fmid.page.mapMyCrew);
 
             $('button.toggle').on('click', fmid.page.selecctItem);
+
+               //fmid.page.renderCrewMemeber([{ photo: "", name: "hello therer"}])
+            
         }
 
-        fmid.page.selecctItem = function ()
-        {
-            if ($(this).hasClass("active"))
-            {
-               // fmid.page.selected[$(this).attr("data-id")] = null;
+        $(document).ready(fmid.page.startUp);
+
+        fmid.page.selecctItem = function () {
+            if ($(this).hasClass("active")) {
+                 fmid.page.selected[$(this).attr("data-id")] = null;
 
                 delete fmid.page.selected[$(this).attr("data-id")];
 
@@ -98,51 +101,37 @@
                 $(this).addClass("active");
             }
 
-           
+
         }
 
 
-        fmid.page.mapMyCrew = function (data) {
-            var newArray = $.map(data.items, findMe.page.handlers.addMyCrew);
-            setInterval(location.href = "/Homepage/Homepage", 25000);
-            return newArray
+        fmid.page.mapMyCrew = function () {
+
+            var newArray = $.map(fmid.page.selected, fmid.page.mapIds);
+
+            console.log(newArray);
+
+            //setInterval(location.href = "/Homepage/Homepage", 25000);
+
+            //return newArray
+        }
+
+        fmid.page.mapIds = function (oneCrewMember, idx) {
+
+            return oneCrewMember;
         }
 
 
-        fmid.page.handlers.addMyCrew = function (oneCrewMember, idx) {
-            var newitem = {
-                targetURL: "/contacts/" + oneCrewMember.userId
-                , image: oneCrewMember.photo
-                , name: oneCrewMember.name
+        fmid.page.receivedUsers = function (data) {
 
-            };
-            return newitem;
+
         }
 
-        fmid.page.renderCrewMemeber = function (data) {
-            var crewData = fmid.page.mapMyCrew(data);
-            for (var i = 0; i < crewData.length; i++) {
-
-                var currentCrewMember = crewData[i];
-
-                var clone = $('#crewClone').clone();
-
-                var imgUrl = "http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg" + oneCrewMember.photo;
-
-                $(".crewface", clone).attr("src", imgUrl)
-
-                var targetElement = $("#crewClone");
-                $(".crewName", clone).text(currentCrewMember.name);
-
-                $(targetElement).append(clone);
-            }
-            }
-        
 
 
 
 
-</script>
+    </script>
 
 }
 
