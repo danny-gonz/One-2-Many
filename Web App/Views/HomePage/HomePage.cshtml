@@ -1,0 +1,72 @@
+﻿
+@{
+    ViewBag.Title = "HomePage";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="page-block space-top double-space-bottom">
+    <div class="container">
+        <div class="page-heading center">
+            <h2>Find Me I'm Drunk</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-sm-12">
+                <!--Google Map-->
+                <div id="candidate-map-canvas" class="google-map h-550 space-bottom google-maps" data-location="200 N Spring St Los Angeles, CA" data-zoom="12">
+                    <!--Insert Location in data-location, insert map zoom in data-zoom-->
+                </div>
+                <!--Google Map Close-->
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+@section scripts{
+    <script type="text/javascript">
+
+
+    imDrunk.startUp = function () {
+
+
+        imDrunk.mapCenter = new google.maps.LatLng(34.053477, -118.242893);
+
+        var navoptions = {
+            enableHighAccuracy: true,
+            timeout: 5000,
+            scaleControl: false,
+            zoom: 8,
+            scrollwheel: true,
+            panControl: false,
+            zoomControl: false,
+            overviewMapControl: false
+
+        };
+
+        imDrunk.map = imDrunk.mapDraw('candidate-map-canvas', imDrunk.mapCenter, null);
+    }
+
+
+
+    imDrunk.mapDraw = function (elementId, centerLatLng, options) {
+
+        var mapoptions = {
+            center: centerLatLng,
+            zoom: 8,
+            enableHighAccuracy: true,
+            timeout: 5000,
+            scrollwheel: true,
+            maximumAge: 0,
+
+        };
+
+    }
+
+
+
+
+
+    </script>
+}
+
