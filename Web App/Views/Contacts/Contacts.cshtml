@@ -3,204 +3,212 @@
 <header class="bar bar-nav">
     <h1 class="title">Pick Your Crew</h1>
 
+
+
+    <a href="/homepage/homepage" id="home" class="btn btn-negative pull-left">
+        Home
+    </a>
 </header>
 
 
+<div class="content">
+    
 
+        <form id="crewForm">
 
-<form id="crewForm">
-   
-    <div id="crewClone" class="table-view-cell  ">
+            <div id="crewClone" class="table-view-cell  ">
 
 
 
-        <img id="crewface" class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/58/23/27/58232790de6007a03b2e057ff23cec4e.jpg">
+                <img id="crewface" class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/58/23/27/58232790de6007a03b2e057ff23cec4e.jpg">
 
-        <h4 id="crewName" align="center">Stacy Acosta</h4>
+                <h4 id="crewName" align="center">Stacy Acosta</h4>
 
-        <button href="" type="button" class="toggle" data-id="5" data-phonenumeber="3101238910">ADD</button>
+                <button href="" type="button" class="toggle" data-id="5" data-phonenumeber="3101238910">ADD</button>
 
 
-    </div>
+            </div>
 
 
 
-    <div class="table-view-cell">
+            <div class="table-view-cell">
 
-        <img class="media-object pull-left" src="http://s.huffpost.com/contributors/jonathan-alpert/headshot.jpg"> <h4 align="center">Bob Rivera </h4>
-        <button class="toggle" type="button" data-id="5" data-phonenumeber="3101238910">ADD</button>
+                <img class="media-object pull-left" src="http://s.huffpost.com/contributors/jonathan-alpert/headshot.jpg"> <h4 align="center">Bob Rivera </h4>
+                <button class="toggle" type="button" data-id="5" data-phonenumeber="3101238910">ADD</button>
 
-    </div>
+            </div>
 
-    <div class="table-view-cell">
+            <div class="table-view-cell">
 
-        <img class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/96/b2/04/96b2044c77b310436d6f326374effaba.jpg"> <h4 align="center">Jackie Chan</h4>
-        <button class="toggle  " type="button" data-id="35" data-phonenumeber="4242228910">ADD</button>
+                <img class="media-object pull-left" src="http://media-cache-ak0.pinimg.com/45x45/96/b2/04/96b2044c77b310436d6f326374effaba.jpg"> <h4 align="center">Jackie Chan</h4>
+                <button class="toggle  " type="button" data-id="35" data-phonenumeber="4242228910">ADD</button>
 
-    </div>
+            </div>
 
-    <div class="table-view-cell">
+            <div class="table-view-cell">
 
-        <img class="media-object pull-left" src="http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg"> <h4 align="center">David Bowie </h4>
-        <button class="toggle  " type="button" data-id="52" data-phonenumeber="32311128910">ADD</button>
+                <img class="media-object pull-left" src="http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg"> <h4 align="center">David Bowie </h4>
+                <button class="toggle  " type="button" data-id="52" data-phonenumeber="32311128910">ADD</button>
 
-    </div>
+            </div>
 
 
-    <div class="table-view-cell">
+            <div class="table-view-cell">
 
-        <img class="media-object pull-left" src="http://i.huffpost.com/gadgets/slideshows/264640/slide_264640_1783035_sq50.jpg"><h4 align="center">Gregorio Rojas</h4>
+                <img class="media-object pull-left" src="http://i.huffpost.com/gadgets/slideshows/264640/slide_264640_1783035_sq50.jpg"><h4 align="center">Gregorio Rojas</h4>
 
-        <button class="toggle  " type="button" data-id="335" data-phonenumeber="81811128910">ADD</button>
-    </div>
+                <button class="toggle  " type="button" data-id="335" data-phonenumeber="81811128910">ADD</button>
+            </div>
 
-    <div>
+            <div>
 
-        <button type="button" class="btn btn-primary btn-block addContact "> Submit</button>
+                <button type="button" class="btn btn-primary btn-block addContact "> Submit</button>
 
-    </div>
+            </div>
 
-</form>
+        </form>
 
+        </div>
+    
 
-@section scripts{
+        @section scripts{
 
-    <script type="text/javascript">
+            <script type="text/javascript">
 
 
-        var fmid = {
-            page: { handlers: {} }, services: {}, layout: { handlers: {} }
-        };
-
-
-        fmid.page.selected = {};
-
-
-        fmid.page.startUp = function () {
-
-            $('.addContact').on('click', fmid.page.mapMyCrew);
-
-            $('button.toggle').on('click', fmid.page.selecctItem);
-
-            //fmid.page.renderCrewMemeber([{ photo: "", name: "hello therer"}])
-
-        }
-
-        $(document).ready(fmid.page.startUp);
-
-        fmid.page.selecctItem = function () {
-            if ($(this).hasClass("active")) {
-                fmid.page.selected[$(this).attr("data-id")] = null;
-
-                delete fmid.page.selected[$(this).attr("data-id")];
-
-                $(this).removeClass("active");
-            }
-            else {
-                fmid.page.selected[$(this).attr("data-id")] = { name: $(this).siblings("h4").text(), phone: $(this).attr("data-phonenumeber") };
-                $(this).addClass("active");
-            }
-
-
-        }
-
-
-        fmid.page.mapMyCrew = function () {
-
-            var newArray = $.map(fmid.page.selected, fmid.page.mapIds);
-
-            console.log(newArray);
-            var nvvps = "";
-
-            for (var i = 0; i < newArray.length; i++) {
-                nvvps = nvvps + "Users[" + i + "].name=" + newArray[i].name.toString().trim() + "&Users[" + i + "].number=" + newArray[i].phone.toString().trim() + "&"
-            }
-           
-
-            window.location = "/confirmation/notification?" + nvvps;
-
-            fmid.page.ajaxCall(nvvps);        //setInterval(location.href = "/Homepage/Homepage", 25000);
-
-            //return newArray
-        }
-
-        fmid.page.mapIds = function (oneCrewMember, idx) {
-
-            return oneCrewMember;
-        }
-
-        fmid.page.Member = function () {
-
-            var member = fmid.page.selecctItem(fmid.page.mapIds);
-
-            for (var i = 0; i < member.length; i++) {
-
-
-                member.push();
-
-            }
-
-
-        }
-
-
-
-
-
-        fmid.page.ajaxCall = function (myData) {
-                var url = "/contacts";
-                var settings = {
-                    cache: false
-                , contentType: "application/x-www-form-urlencoded; charset=UTF-8"
-                , data: myData
-                , dataType: "json"
-                , success: null
-                , error: null
-                , type: "POST"
+                var fmid = {
+                    page: { handlers: {} }, services: {}, layout: { handlers: {} }
                 };
 
 
-                $.ajax(url, settings);
-            }
-        
+                fmid.page.selected = {};
+
+
+                fmid.page.startUp = function () {
+
+                    $('.addContact').on('click', fmid.page.mapMyCrew);
+
+                    $('button.toggle').on('click', fmid.page.selecctItem);
+
+                    //fmid.page.renderCrewMemeber([{ photo: "", name: "hello therer"}])
+
+                }
+
+                $(document).ready(fmid.page.startUp);
+
+                fmid.page.selecctItem = function () {
+                    if ($(this).hasClass("active")) {
+                        fmid.page.selected[$(this).attr("data-id")] = null;
+
+                        delete fmid.page.selected[$(this).attr("data-id")];
+
+                        $(this).removeClass("active");
+                    }
+                    else {
+                        fmid.page.selected[$(this).attr("data-id")] = { name: $(this).siblings("h4").text(), phone: $(this).attr("data-phonenumeber") };
+                        $(this).addClass("active");
+                    }
+
+
+                }
+
+
+                fmid.page.mapMyCrew = function () {
+
+                    var newArray = $.map(fmid.page.selected, fmid.page.mapIds);
+
+                    console.log(newArray);
+                    var nvvps = "";
+
+                    for (var i = 0; i < newArray.length; i++) {
+                        nvvps = nvvps + "Users[" + i + "].name=" + newArray[i].name.toString().trim() + "&Users[" + i + "].number=" + newArray[i].phone.toString().trim() + "&"
+                    }
+
+
+                    window.location = "/confirmation/notification?" + nvvps;
+
+                    fmid.page.ajaxCall(nvvps);        //setInterval(location.href = "/Homepage/Homepage", 25000);
+
+                    //return newArray
+                }
+
+                fmid.page.mapIds = function (oneCrewMember, idx) {
+
+                    return oneCrewMember;
+                }
+
+                fmid.page.Member = function () {
+
+                    var member = fmid.page.selecctItem(fmid.page.mapIds);
+
+                    for (var i = 0; i < member.length; i++) {
+
+
+                        member.push();
+
+                    }
+
+
+                }
 
 
 
 
-        fmid.page.AjaxSuccess = function (data, status, xhr) {
-            console.log(data);
+
+                fmid.page.ajaxCall = function (myData) {
+                    var url = "/contacts";
+                    var settings = {
+                        cache: false
+                    , contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+                    , data: myData
+                    , dataType: "json"
+                    , success: null
+                    , error: null
+                    , type: "POST"
+                    };
+
+
+                    $.ajax(url, settings);
+                }
+
+
+
+
+
+                fmid.page.AjaxSuccess = function (data, status, xhr) {
+                    console.log(data);
+                }
+
+                fmid.page.AjaxError = function (jqXHR, textStatus, errorThrown) {
+                    console.error(errorThrown);
+                }
+
+                fmid.page.renderCrewMemeber = function (data) {
+
+
+                    var crewData = fmid.page.mapIds(data);
+
+                    for (var i = 0; i < crewData.length; i++) {
+
+                        var currentCrewMember = crewData[i];
+
+                        var clone = $('#crewClone').clone();
+
+                        var imgUrl = "http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg" + currentCrewMember
+
+                        $(".crewface", clone).attr("src", imgUrl)
+
+                        var targetElement = $("#crewForm");
+                        $(".crewName", clone).text(currentCrewMember);
+
+                        $(targetElement).append(clone);
+                    }
+                }
+
+
+
+
+
+            </script>
         }
-
-        fmid.page.AjaxError = function (jqXHR, textStatus, errorThrown) {
-            console.error(errorThrown);
-        }
-
-        fmid.page.renderCrewMemeber = function (data) {
-
-
-            var crewData = fmid.page.mapIds(data);
-
-            for (var i = 0; i < crewData.length; i++) {
-
-                var currentCrewMember = crewData[i];
-
-                var clone = $('#crewClone').clone();
-
-                var imgUrl = "http://media-cache-ec0.pinimg.com/45x45/1e/dd/db/1edddb7871a6422ef2519c3c7b930558.jpg" + currentCrewMember
-
-                $(".crewface", clone).attr("src", imgUrl)
-
-                var targetElement = $("#crewForm");
-                $(".crewName", clone).text(currentCrewMember);
-
-                $(targetElement).append(clone);
-            }
-        }
-
-
-
-
-
-    </script>
-}
 
