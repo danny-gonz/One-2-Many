@@ -1,8 +1,10 @@
-﻿<form id="signUp">
-    <input type="text" name="name" value="" placeholder="Name" />
-    <input type="tel" name="phone" value="" placeholder="Phone Number" />
-    <button type="submit" class="btn btn-positive sign-up" data-transition="fade" target="_blank">Sign Up</button>
-</form>
+﻿<div class="card">
+    <form id="signUp">
+        <input type="text" name="name" value="" placeholder="Name" />
+        <input type="tel" name="phone" value="" placeholder="Phone Number" />
+        <button type="submit" class="btn btn-positive sign-up" data-transition="fade" target="_blank">Sign Up</button>
+    </form>
+</div>
 <div>
    
 </div>
@@ -27,9 +29,9 @@
               )
             } else {
                 var user = localStorage.getItem('name').toString();
-                $("form").html(" ");
+                $(".card").html(" ");
 
-                $("form").append("Welcome back" + user + "!")
+                $(".card").append("Welcome back" + user + "!")
                 setInterval(location.href = "/homepage/HomePage", 40000);
             }
         };

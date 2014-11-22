@@ -11,23 +11,23 @@ namespace Web_App.Controllers
     [RoutePrefix("api/MyCrew")]
     public class MyCrewAPIController : ApiController
     {
-    //    [Route("MyCrew"), HttpPost]
-    //    public HttpResponseMessage Add(MyCrewAddRequestModel model)
-    //    {
-    //        if (ModelState.IsValid)
-    //        {
+        [Route("MyCrew"), HttpPost]
+        public HttpResponseMessage Add([FromUri]MyCrewAddRequestModel model)
+        {
+            if (ModelState.IsValid)
+            {
 
-    //            return Request.CreateResponse(HttpStatusCode.OK, ModelState);
+                return Request.CreateResponse(HttpStatusCode.OK, ModelState);
 
 
-    //        }
-    //        else
-    //        {
-    //            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
+            }
+            else
+            {
+                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
 
             }
 
 
         }
-//    }
-//}
+    }
+}
