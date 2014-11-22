@@ -10,7 +10,7 @@ namespace Web_App.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            return View("_SignUp");
         }
 
         public ActionResult About()

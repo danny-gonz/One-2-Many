@@ -1,0 +1,36 @@
+﻿<form id="signUp">
+    <input type="text" name="name" value="" placeholder="Name" />
+    <input type="tel" name="phone" value="" placeholder="Phone Number" />
+    <button type="submit" class="btn btn-positive sign-up" data-transition="fade" href="#" target="_blank">Sign Up</button>
+</form>
+<div>
+   
+</div>
+@section Scripts{
+    <script>
+        var wireCookie = function () {
+            var numerics = localStorage.getItem('phone')
+            if (numerics = null) {
+                $("form").submit(
+                                 function (e) {
+                                     var formData = $("#signUp").serializeArray();
+                                     console.log(formData);
+                                     e.preventDefault();
+                                     jQuery.each(
+                                         formData, function (i, formData) {
+                                             localStorage.setItem(formData.name, JSON.stringify(formData.value))
+                                         }
+
+                                         )
+                                 }
+              )
+            } else {
+                var user = localStorage.getItem('name');
+                $("form").html(" Welcome back" + user + "!");
+
+                $("form").append("")
+            }
+        };
+        $(document).ready(wireCookie);
+    </script>
+} 
