@@ -19,12 +19,16 @@ namespace Web_App
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
-            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
-                      "~/Scripts/bootstrap.js",
-                      "~/Scripts/respond.js"));
+            bundles.Add(new ScriptBundle("~/bundles/ratchet").Include(
+                      "~/Scripts/ratchet.js")
+                      //,"~/Scripts/respond.js")
+                      );
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
+                      "~/Content/ratchet-theme-android.css",
+                      "~/Content/ratchet-theme-ios.css",
+                      "~/Content/ratchet.css",
+
                       "~/Content/site.css"));
         }
     }
