@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FindMeImDrunk", "FindMeImDrunk\FindMeImDrunk.csproj", "{3AC62EC6-B059-431B-A634-1C75F93DBDCF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fmidAPI", "fmidAPI\fmidAPI.csproj", "{22C072BB-757C-4609-980B-02BEA8D82CC6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3AC62EC6-B059-431B-A634-1C75F93DBDCF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AC62EC6-B059-431B-A634-1C75F93DBDCF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AC62EC6-B059-431B-A634-1C75F93DBDCF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AC62EC6-B059-431B-A634-1C75F93DBDCF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{22C072BB-757C-4609-980B-02BEA8D82CC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22C072BB-757C-4609-980B-02BEA8D82CC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22C072BB-757C-4609-980B-02BEA8D82CC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22C072BB-757C-4609-980B-02BEA8D82CC6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
