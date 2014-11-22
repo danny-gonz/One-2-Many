@@ -1,5 +1,5 @@
 ﻿
-<body>
+
     <header class="bar bar-nav">
         <h1 class="title">Add Your Friends</h1>
 
@@ -70,7 +70,7 @@
 
         </div>
         </div>
-</body>
+
 
         @section scripts{
 
@@ -95,8 +95,7 @@
 
                 }
 
-                $(document).ready(fmid.page.startUp);
-
+            
                 fmid.page.selecctItem = function () {
                     if ($(this).hasClass("active")) {
                         fmid.page.selected[$(this).attr("data-id")] = null;
@@ -207,6 +206,7 @@
                 }
 
 
+                $(document).ready(fmid.page.startUp);
 
 
 
