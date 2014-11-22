@@ -1,8 +1,8 @@
 ﻿<div class="card">
-    <form id="signUp">
+    <form class="signUp">
         <input type="text" name="name" value="" placeholder="Name" />
-        <input type="tel" name="phone" value="" placeholder="Phone Number" />
-        <button type="submit" class="btn btn-positive sign-up" data-transition="fade" target="_blank">Sign Up</button>
+        <input type="tel" name="phone" value="" placeholder="Phone Number" /><br />
+        <button type="submit" class="btn btn-block btn-positive sign-up" data-transition="fade" target="_blank">Sign Up</button>
     </form>
 </div>
 <div>
@@ -10,30 +10,34 @@
 </div>
 @section Scripts{
     <script>
-        var wireCookie = function () {
-            var numerics = localStorage.getItem('phone')
-            if (numerics = null) {
+        var wireCookie = function () {  
+            var numerics = sessionStorage.getItem('phone');
+            if (!numerics) {
                 $("form").submit(
                                  function (e) {
-                                     var formData = $("#signUp").serializeArray();
+                                     var formData = $(".signUp").serializeArray();
                                      console.log(formData);
                                      e.preventDefault();
                                      jQuery.each(
                                          formData, function (i, formData) {
-                                             localStorage.setItem(formData.name, JSON.stringify(formData.value))
-                                             location.href ="/Homepage/Homepage.html"
+                                             sessionStorage.setItem(formData.name, JSON.stringify(formData.value))
+                                             location.href = "@Url.Action("Homepage", "Homepage")";
                                          }
 
                                          )
                                  }
               )
             } else {
-                var user = localStorage.getItem('name').toString();
+                var user = sessionStorage.getItem('name');
                 $(".card").html(" ");
+               
+                usr = user.toString().replace(/""/," " );
+                $(".card").append("<h3 class='center greeting'> Welcome back" + usr + "!</h3>");
+                $(window).fadeIn(
+                setTimeout(location.href = "/homepage/HomePage", 90000)
+            );
+                }
 
-                $(".card").append("Welcome back" + user + "!")
-                setInterval(location.href = "/homepage/HomePage", 40000);
-            }
         };
         $(document).ready(wireCookie);
     </script>
