@@ -12,6 +12,8 @@ namespace Web_App.Controllers
         // GET: MyCrew                
         public ActionResult Crew()
             {
+
+
                 return View();
 
             }
