@@ -14,7 +14,8 @@
 
         <ul id="crew" class="table-view">
 
-            <li id="crewClone" class="table-view-cell partCrew"><span class="crewName"></span><button class="btn num" data-id="2">Request Pending</button></li>
+            <li id="crewClone" class="table-view-cell partCrew"><span class="crewName"></span>
+            <button class="btn num" data-id="2">Request Pending</button></li>
 
         </ul>
 
@@ -26,11 +27,12 @@
 <script>
 
     var findMe = { page: { handlers: {} }, services: {} };
-
+    console.warn("hello there");
 
     findMe.page.startUp = function () {
 
-       
+        console.warn("hello start");
+
         var myCrew = [{ name: 'Bozo', id: 99 }, { name: 'Sandy', id: 33 }, { name: 'Bob', id: 1 }, { name: 'Tupac', id: 10 }, { name: 'Jimi', id: 69 }];
 
         findMe.page.confirm(myCrew);
@@ -39,7 +41,9 @@
     
     findMe.page.confirm = function(crew){
 
-      
+        console.warn("hello crew");
+
+        console.warn(crew);
 
         var targetList = $("#crew");
 
